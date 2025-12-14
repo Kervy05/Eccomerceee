@@ -1,0 +1,14 @@
+<div class="customer-layout">
+  <h2>LocalFood</h2>
+
+  <nav>
+    <button routerLink="/customer/products">Browse Products</button>
+    <button routerLink="/customer/profile">My Profile</button>
+    <button (click)="logout()">Logout</button>
+  </nav>
+
+  <hr />
+
+  <!-- CHILD ROUTES RENDER HERE -->
+  <router-outlet></router-outlet>
+</div>

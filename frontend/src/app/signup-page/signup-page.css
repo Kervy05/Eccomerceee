@@ -1,60 +1,79 @@
+/* Center whole page */
+.signup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fafafa;
+  padding: 20px;
+}
+
+/* White card */
 .signup-container {
-  max-width: 400px;
-  margin: 5rem auto;
-  padding: 2rem;
-  background-color: #fff8f0;
+  background: white;
+  padding: 30px 40px;
   border-radius: 10px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* Title */
 .signup-container h2 {
-  margin-bottom: 1rem;
-  color: #ff6600;
+  margin-bottom: 5px;
+  font-size: 26px;
+  color: #333;
 }
 
-.signup-container p {
-  margin-bottom: 2rem;
+/* Subtitle text */
+.subtitle {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 14px;
 }
 
+/* Inputs */
 .signup-container input {
   width: 100%;
-  padding: 0.7rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
+  padding: 12px;
+  margin: 8px 0;
   border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
 }
 
-.signup-container button {
+/* Sign Up Button */
+.signup-btn {
   width: 100%;
-  padding: 0.7rem;
-  background-color: #ff6600;
+  padding: 12px;
+  margin-top: 15px;
+  background: #22a745;
   color: white;
   border: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
+  font-weight: bold;
 }
 
-.signup-container button:hover {
-  background-color: #e65c00;
+.signup-btn:hover {
+  background: #1c8c39;
 }
 
+/* Login link */
 .login {
-  margin-top: 1rem;
-  font-size: 0.9rem;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
 }
 
-.login .link-btn {
-  background: none;
-  border: none;
-  color: #ff6600;
+.login-link {
+  color: #e67e22;
   cursor: pointer;
   font-weight: bold;
-  padding: 0;
 }
 
-.login .link-btn:hover {
+.login-link:hover {
   text-decoration: underline;
 }

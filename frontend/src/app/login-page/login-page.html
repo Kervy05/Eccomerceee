@@ -1,16 +1,18 @@
-<div class="login-container">
-  <h2>Welcome Back</h2>
-  <p>Login to continue exploring local flavors</p>
+<div class="login-wrapper">
+  <div class="login-container">
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Login to continue exploring local flavors</p>
 
-  <form>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
+    <form [formGroup]="loginForm">
+      <input type="email" placeholder="Email" formControlName="email">
+      <input type="password" placeholder="Password" formControlName="password">
 
-    <button type="button" (click)="login()">Login</button>
+      <button class="login-btn" type="button" (click)="login()">Login</button>
 
-    <p class="signup-link">
-      Don't have an account? 
-      <button type="button" class="link-btn" (click)="goToSignup()">Create one</button>
-    </p>
-  </form>
+      <p class="signup-text">
+        Don't have an account?
+        <span class="signup-link" (click)="goToSignup()">Create one</span>
+      </p>
+    </form>
+  </div>
 </div>

@@ -1,18 +1,21 @@
-<div class="signup-container"> 
-  <h2>Create Your Account</h2>
-  <p>Join our community of local food lovers</p>
+<div class="signup-wrapper">
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+    <p class="subtitle">Join our community of local food lovers</p>
 
-  <form>
-    <input type="text" placeholder="Full Name">
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <input type="password" placeholder="Confirm Password">
+    <form [formGroup]="signupForm">
+      <input type="text" placeholder="Full Name" formControlName="name">
+      <input type="email" placeholder="Email" formControlName="email">
+      <input type="text" placeholder="Contact Number" formControlName="contact_number" />
+      <input type="password" placeholder="Password" formControlName="password">
+      <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
 
-    <button type="button" (click)="signUp()">Sign Up</button>
+      <button class="signup-btn" type="button" (click)="signUp()">Sign Up</button>
 
-    <p class="login">
-      Already have an account?
-      <button type="button" class="link-btn" (click)="goToLogin()">Login</button>
-    </p>
-  </form>
+      <p class="login">
+        Already have an account?
+        <span class="login-link" (click)="goToLogin()">Login</span>
+      </p>
+    </form>
+  </div>
 </div>
