@@ -1,24 +1,31 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthService } from './auth.service';
+import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
+  private API = 'http://localhost:3000/products';
 
-  private apiUrl = 'http://localhost:3000/products';
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient,
-    private auth: AuthService
-  ) {}
+  private getHeaders() {
+    const token = localStorage.getItem('token');
+    return {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      })
+    };
+  }
 
   getProducts() {
-    const token = this.auth.getToken();
+    return this.http.get<any[]>(this.API);
+  }
 
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
+  addProduct(product: any) {
+    return this.http.post(this.API, product, this.getHeaders());
+  }
 
-    return this.http.get<any[]>(this.apiUrl, { headers });
+  deleteProduct(id: number) {
+    return this.http.delete(`${this.API}/${id}`, this.getHeaders());
   }
 }

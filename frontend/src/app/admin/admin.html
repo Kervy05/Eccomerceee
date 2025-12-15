@@ -1,0 +1,47 @@
+<div class="admin-page">
+
+  <h2>Admin Dashboard</h2>
+
+  <!-- ADD PRODUCT -->
+  <div class="add-box">
+    <h3>Add Product</h3>
+
+    <input [(ngModel)]="newProduct.product_name" placeholder="Product name">
+<input [(ngModel)]="newProduct.price" type="number" placeholder="Price">
+<input [(ngModel)]="newProduct.description" placeholder="Description">
+
+
+
+    <button (click)="addProduct()">Add Product</button>
+  </div>
+
+  <!-- PRODUCT LIST -->
+  <h3>Product List</h3>
+
+  <table *ngIf="products.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price (₱)</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of products">
+        <td>{{ p.name }}</td>
+        <td>{{ p.price }}</td>
+        <td>
+          <button class="danger" (click)="deleteProduct(p.product_id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="products.length === 0">
+    No products found.
+  </p>
+
+</div>

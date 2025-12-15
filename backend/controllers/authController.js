@@ -45,11 +45,14 @@ const login = (req, res) => {
       if (!match)
         return res.status(401).json({ message: 'Invalid credentials' });
 
-      const token = jwt.sign(
-        { id: user.user_id, role: user.role },
-        'SECRET_KEY_HERE',
-        { expiresIn: '1d' }
-      );
+      const JWT_SECRET = 'my_super_secret_key';
+
+const token = jwt.sign(
+  { id: user.user_id, role: user.role },
+  JWT_SECRET,
+  { expiresIn: '1d' }
+);
+
 
       res.json({
         token,

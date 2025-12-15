@@ -20,23 +20,21 @@ export class Products implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe({
-      next: (data) => {
-        this.products = data;
-      },
-      error: (err) => {
-        console.error('Failed to load products', err);
-      }
-    });
-  }
-
-  addToCart(id: number) {
-  this.cart.add(id).subscribe({
-    next: () => alert('Added to cart'),
-    error: () => alert('Failed to add to cart')
-  });
+  this.productService.getProducts().subscribe(
+    (data: any[]) => {
+      this.products = data;
+    },
+    (err) => {
+      console.error('Failed to load products', err);
+    }
+  );
 }
 
 
-
+  addToCart(id: number) {
+    this.cart.add(id).subscribe({
+      next: () => alert('Added to cart'),
+      error: () => alert('Failed to add to cart')
+    });
+  }
 }

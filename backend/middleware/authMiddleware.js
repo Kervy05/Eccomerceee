@@ -1,14 +1,29 @@
 const jwt = require('jsonwebtoken');
 
+const JWT_SECRET = 'my_super_secret_key';
+
 exports.verifyToken = (req, res, next) => {
-  const header = req.headers.authorization;
-  if (!header) return res.status(401).json({ message: 'No token provided' });
+  const authHeader = req.headers.authorization;
 
-  const token = header.split(' ')[1];
+  if (!authHeader) {
+    return res.status(401).json({ message: 'No token provided' });
+  }
 
-  jwt.verify(token, 'SECRET_KEY_HERE', (err, user) => {
-    if (err) return res.status(401).json({ message: 'Invalid token' });
-    req.user = user; // { id, role }
+  const token = authHeader.split(' ')[1];
+
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.status(403).json({ message: 'Invalid token' });
+    }
+
+    req.user = user;
     next();
   });
+};
+
+exports.isAdmin = (req, res, next) => {
+  if (req.user.role !== 'Admin') {
+    return res.status(403).json({ message: 'Admin only' });
+  }
+  next();
 };

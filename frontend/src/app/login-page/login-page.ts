@@ -39,6 +39,8 @@ export class LoginPage implements OnInit {
       return;
     }
 
+    
+
     this.http.post<any>('http://localhost:3000/auth/login', this.loginForm.value)
       .subscribe({
         next: (res) => {

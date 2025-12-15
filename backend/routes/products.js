@@ -1,9 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const { verifyToken } = require('../middleware/authMiddleware');
-const productController = require('../controllers/productController');
 
-// ✅ GET all products (Customer browsing)
-router.get('/', verifyToken, productController.getProducts);
+const {
+  getProducts,
+  addProduct,
+  deleteProduct
+} = require('../controllers/productController');
+
+const { verifyToken, isAdmin } = require('../middleware/authMiddleware');
+
+// PUBLIC
+router.get('/', getProducts);
+
+// ADMIN ONLY
+router.post('/', verifyToken, isAdmin, addProduct);
+router.delete('/:id', verifyToken, isAdmin, deleteProduct);
 
 module.exports = router;
