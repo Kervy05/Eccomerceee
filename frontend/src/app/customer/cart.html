@@ -1,0 +1,41 @@
+<div class="page">
+
+  <h2>My Cart</h2>
+
+  <p *ngIf="items.length === 0">Your cart is empty.</p>
+
+  <div class="cart-item" *ngFor="let item of items">
+
+    <div class="item-info">
+      <strong>{{ item.name }}</strong><br>
+      ₱{{ item.price }} × {{ item.quantity }}<br>
+      <small>
+        Subtotal: ₱{{ item.price * item.quantity }}
+      </small>
+    </div>
+
+    <div class="item-actions">
+      <button (click)="update(item, -1)">−</button>
+      <span>{{ item.quantity }}</span>
+      <button (click)="update(item, 1)">+</button>
+
+      <button class="remove" (click)="remove(item.cart_item_id)">
+        Remove
+      </button>
+    </div>
+
+  </div>
+
+  <div class="total" *ngIf="items.length > 0">
+    <strong>Total: ₱{{ total }}</strong>
+  </div>
+
+  <button
+    class="checkout"
+    *ngIf="items.length > 0"
+    (click)="checkout()"
+  >
+    Checkout
+  </button>
+
+</div>

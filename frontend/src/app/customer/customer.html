@@ -1,14 +1,15 @@
-<div class="customer-layout">
-  <h2>LocalFood</h2>
+<div class="header">
+  <h1>LocalFood</h1>
 
-  <nav>
+  <div class="navbar">
     <button routerLink="/customer/products">Browse Products</button>
     <button routerLink="/customer/profile">My Profile</button>
-    <button (click)="logout()">Logout</button>
-  </nav>
+    <button routerLink="/customer/orders">My Orders</button>
+    <button routerLink="/customer/cart">Cart</button>
+    <button routerLink="/logout">Logout</button>
+  </div>
+</div>
 
-  <hr />
-
-  <!-- CHILD ROUTES RENDER HERE -->
+<div class="page">
   <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,16 @@
+<h2>My Orders</h2>
+
+<p *ngIf="orders.length === 0">No orders yet.</p>
+
+<div *ngFor="let o of orders" class="order-card">
+  <p><strong>Order ID:</strong> {{ o.order_id }}</p>
+  <p><strong>Date:</strong> {{ o.order_date | date }}</p>
+  <p><strong>Status:</strong> {{ o.status }}</p>
+
+  <p>
+    {{ o.product_name }} —
+    ₱{{ o.price }} × {{ o.quantity }}
+  </p>
+
+  <hr />
+</div>

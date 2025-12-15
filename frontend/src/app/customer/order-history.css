@@ -1,0 +1,10 @@
+.order {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.order strong {
+  color: #2c7be5;
+}

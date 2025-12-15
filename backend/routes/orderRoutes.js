@@ -1,7 +1,11 @@
 const router = require('express').Router();
 const { verifyToken } = require('../middleware/authMiddleware');
-const order = require('../controllers/orderController');
+const orderController = require('../controllers/orderController');
 
-router.post('/checkout', verifyToken, order.checkout);
+// Checkout
+router.post('/checkout', verifyToken, orderController.checkout);
+
+// Order history
+router.get('/', verifyToken, orderController.getOrders);
 
 module.exports = router;

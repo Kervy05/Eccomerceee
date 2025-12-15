@@ -13,6 +13,8 @@ app.use('/products', productRoutes);
 app.use('/cart', require('./routes/cartRoutes'));
 // server.js
 app.use('/orders', require('./routes/orderRoutes'));
+app.use('/orders', require('./routes/orderRoutes'));
+
 
 
 

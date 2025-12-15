@@ -6,10 +6,10 @@ import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
 
-  // ✅ LANDING PAGE (DEFAULT)
+  // ✅ LANDING PAGE
   { path: '', component: LandingPage },
 
-  // Auth pages
+  // Auth
   { path: 'login', component: LoginPage },
   { path: 'signup', component: SignupPage },
 
@@ -31,32 +31,43 @@ export const routes: Routes = [
       import('./staff/staff').then(m => m.Staff)
   },
 
-  // 🔐 CUSTOMER (layout + children)
+  // 🔐 CUSTOMER (LAYOUT + CHILDREN)
   {
-    path: 'customer',
-    canActivate: [authGuard],
-    data: { roles: ['Customer'] },
-    loadComponent: () =>
-      import('./customer/customer').then(m => m.Customer),
-    children: [
-      {
-        path: '',
-        loadComponent: () =>
-          import('./customer/products').then(m => m.Products)
-      },
-      {
-        path: 'products',
-        loadComponent: () =>
-          import('./customer/products').then(m => m.Products)
-      },
-      {
-        path: 'profile',
-        loadComponent: () =>
-          import('./customer/profile').then(m => m.CustomerProfile)
-      }
-    ]
-  },
+  path: 'customer',
+  canActivate: [authGuard],
+  data: { roles: ['Customer'] },
+  loadComponent: () =>
+    import('./customer/customer').then(m => m.Customer),
+  children: [
+    {
+      path: '',
+      loadComponent: () =>
+        import('./customer/products').then(m => m.Products)
+    },
+    {
+      path: 'products',
+      loadComponent: () =>
+        import('./customer/products').then(m => m.Products)
+    },
+    {
+      path: 'profile',
+      loadComponent: () =>
+        import('./customer/profile').then(m => m.CustomerProfile)
+    },
+    {
+      path: 'orders', // ✅ ORDER HISTORY
+      loadComponent: () =>
+        import('./customer/order-history').then(m => m.OrderHistory)
+    },
+    {
+      path: 'cart', // ✅ CART PAGE
+      loadComponent: () =>
+        import('./customer/cart').then(m => m.Cart)
+    }
+  ]
+},
 
-  // ❌ fallback (optional but recommended)
+
+  // fallback
   { path: '**', redirectTo: '' }
 ];
