@@ -2,46 +2,68 @@
 
   <h2>Admin Dashboard</h2>
 
-  <!-- ADD PRODUCT -->
-  <div class="add-box">
-    <h3>Add Product</h3>
+  <div class="admin-layout">
 
-    <input [(ngModel)]="newProduct.product_name" placeholder="Product name">
-<input [(ngModel)]="newProduct.price" type="number" placeholder="Price">
-<input [(ngModel)]="newProduct.description" placeholder="Description">
+    <!-- LEFT SIDE: ADD PRODUCT -->
+    <div class="add-box">
+      <h3>Add Product</h3>
 
+      <label>Product Name</label>
+      <input
+        [(ngModel)]="newProduct.product_name"
+        placeholder="Enter product name"
+      >
 
+      <label>Price</label>
+      <input
+        [(ngModel)]="newProduct.price"
+        type="number"
+        placeholder="Enter price"
+      >
 
-    <button (click)="addProduct()">Add Product</button>
+      <label>Description</label>
+      <input
+        [(ngModel)]="newProduct.description"
+        placeholder="Enter description"
+      >
+
+      <button (click)="addProduct()">Add Product</button>
+    </div>
+
+    <!-- RIGHT SIDE: PRODUCT LIST -->
+    <div class="product-list">
+      <h3>Product List</h3>
+
+      <table *ngIf="products.length > 0">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price (₱)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let p of products">
+            <td>{{ p.product_name }}</td>
+            <td>₱{{ p.price }}</td>
+            <td>
+              <button
+                class="danger"
+                (click)="deleteProduct(p.product_id)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="empty" *ngIf="products.length === 0">
+        No products found.
+      </p>
+    </div>
+
   </div>
-
-  <!-- PRODUCT LIST -->
-  <h3>Product List</h3>
-
-  <table *ngIf="products.length > 0">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Price (₱)</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let p of products">
-        <td>{{ p.name }}</td>
-        <td>{{ p.price }}</td>
-        <td>
-          <button class="danger" (click)="deleteProduct(p.product_id)">
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p *ngIf="products.length === 0">
-    No products found.
-  </p>
 
 </div>

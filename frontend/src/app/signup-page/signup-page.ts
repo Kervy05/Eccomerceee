@@ -6,13 +6,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-signup-page',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule], // ✅ ADD THIS
+  imports: [ReactiveFormsModule, HttpClientModule], //  ADD THIS
   templateUrl: './signup-page.html',
   styleUrl: './signup-page.css',
 })
 export class SignupPage {
 
-  signupForm!: FormGroup; // ✅ ADD TYPE
+  signupForm!: FormGroup; // ADD TYPE
 
   constructor(
     private fb: FormBuilder,

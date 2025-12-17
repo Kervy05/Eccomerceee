@@ -1,14 +1,11 @@
 <div class="page">
+  <h2>Available Food</h2>
 
-  <h2>Browse Products</h2>
-
-<div class="products">
-  <div class="product" *ngFor="let p of products">
-    <h3>{{ p.product_name }}</h3>
-    <p>₱{{ p.price }}</p>
-    <button (click)="addToCart(p.product_id)">Add to Cart</button>
+  <div class="products">
+    <div class="product" *ngFor="let p of products">
+      <h3>{{ p.product_name }}</h3>
+      <p>₱{{ p.price }}</p>
+      <button (click)="addToCart(p.product_id)">Add to Cart</button>
+    </div>
   </div>
-</div>
-
-
 </div>

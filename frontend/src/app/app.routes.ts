@@ -7,14 +7,14 @@ import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
 
-  // ✅ LANDING PAGE
+  //  LANDING PAGE
   { path: '', component: LandingPage },
 
   // Auth
   { path: 'login', component: LoginPage },
   { path: 'signup', component: SignupPage },
 
-  // 🔐 ADMIN
+  //  ADMIN
   {
     path: 'admin',
     canActivate: [authGuard],
@@ -23,7 +23,7 @@ export const routes: Routes = [
       import('./admin/admin').then(m => m.Admin)
   },
 
-  // 🔐 STAFF
+  //  STAFF
   {
     path: 'staff',
     canActivate: [authGuard],
@@ -32,7 +32,7 @@ export const routes: Routes = [
       import('./staff/staff').then(m => m.Staff)
   },
 
-  // 🔐 CUSTOMER (LAYOUT + CHILDREN)
+  // CUSTOMER (LAYOUT + CHILDREN)
   {
   path: 'customer',
   canActivate: [authGuard],
@@ -56,12 +56,12 @@ export const routes: Routes = [
         import('./customer/profile').then(m => m.CustomerProfile)
     },
     {
-      path: 'orders', // ✅ ORDER HISTORY
+      path: 'orders', //  ORDER HISTORY
       loadComponent: () =>
         import('./customer/order-history').then(m => m.OrderHistory)
     },
     {
-      path: 'cart', // ✅ CART PAGE
+      path: 'cart', // CART PAGE
       loadComponent: () =>
         import('./customer/cart').then(m => m.Cart)
     }

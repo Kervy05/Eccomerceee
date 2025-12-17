@@ -1,48 +1,48 @@
-/* Page base */
 :host {
   display: block;
   min-height: 100vh;
-  background: #f4f6f8;
+  background: #f7f7f7;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Header */
+/* HEADER */
 .header {
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
+  background: white;
   padding: 15px 20px;
+  border-bottom: 2px solid #ff6f00;
 }
 
 .header h1 {
   margin: 0;
-  font-size: 22px;
-  color: #2c7be5;
+  color: #ff6f00;
+  font-size: 24px;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar {
+  margin-top: 10px;
   display: flex;
   gap: 10px;
-  margin-top: 10px;
   flex-wrap: wrap;
 }
 
 .navbar button {
-  background: #2c7be5;
+  background: #ff6f00;
   color: white;
   border: none;
   padding: 8px 14px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .navbar button:hover {
-  background: #1a5fd0;
+  background: #e65100;
 }
 
-/* Page container */
+/* PAGE CONTAINER */
 .page {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 20px auto;
   padding: 0 15px;
 }

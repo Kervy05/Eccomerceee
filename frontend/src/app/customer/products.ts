@@ -13,7 +13,7 @@ import { CartService } from '../services/cart.service';
 export class Products implements OnInit {
 
   products: any[] = [];
-
+  product_id: number = 28;
   constructor(
     private productService: ProductService,
     private cart: CartService

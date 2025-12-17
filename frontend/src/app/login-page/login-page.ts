@@ -44,10 +44,10 @@ export class LoginPage implements OnInit {
     this.http.post<any>('http://localhost:3000/auth/login', this.loginForm.value)
       .subscribe({
         next: (res) => {
-          // ✅ Use AuthService (single source of truth)
+          //  Use AuthService (single source of truth)
           this.auth.login(res.token, res.role, res.name);
 
-          // ✅ Redirect by role
+          //  Redirect by role
           if (res.role === 'Admin') {
             this.router.navigate(['/admin']);
           } else if (res.role === 'Staff') {

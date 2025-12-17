@@ -32,7 +32,7 @@ export class AuthService {
     return !!this.getToken();
   }
 
-  // 👤 CUSTOMER PROFILE
+  // CUSTOMER PROFILE
   getProfile() {
     return this.http.get<any>('http://localhost:3000/auth/profile', {
       headers: {

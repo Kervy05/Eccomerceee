@@ -63,7 +63,7 @@ const token = jwt.sign(
   );
 };
 
-// 🔒 ADMIN-ONLY CREATE USER
+// ADMIN-ONLY CREATE USER
 const createUser = async (req, res) => {
   if (req.user.role !== 'Admin') {
     return res.status(403).json({ message: 'Admin access only' });
@@ -109,7 +109,7 @@ const getProfile = (req, res) => {
   );
 };
 
-// ✅ THIS IS THE CRITICAL PART
+// THIS IS THE CRITICAL PART
 module.exports = {
   register,
   login,

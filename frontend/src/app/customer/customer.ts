@@ -4,7 +4,7 @@ import { AuthService } from '../services/auth.service';
 
 @Component({
   standalone: true,
-  imports: [RouterModule], // ✅ REQUIRED
+  imports: [RouterModule], //  REQUIRED
   templateUrl: './customer.html',
   styleUrl: './customer.css'
 })

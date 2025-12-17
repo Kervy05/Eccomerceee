@@ -1,6 +1,6 @@
 const db = require('../db');
 
-// 🛒 CHECKOUT
+// CHECKOUT
 exports.checkout = (req, res) => {
   const userId = req.user.id;
 
@@ -69,7 +69,7 @@ exports.checkout = (req, res) => {
   );
 };
 
-// 📦 ORDER HISTORY
+//  ORDER HISTORY
 exports.getOrders = (req, res) => {
   const userId = req.user.id;
 

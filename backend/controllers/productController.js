@@ -1,6 +1,6 @@
 const db = require('../db');
 
-// 📦 GET ALL PRODUCTS
+//  GET ALL PRODUCTS
 exports.getProducts = (req, res) => {
   db.query('SELECT * FROM products', (err, results) => {
     if (err) return res.status(500).json(err);
@@ -8,7 +8,7 @@ exports.getProducts = (req, res) => {
   });
 };
 
-// ➕ ADD PRODUCT (ADMIN)
+//  ADD PRODUCT (ADMIN)
 exports.addProduct = (req, res) => {
   const { product_name, price, description } = req.body;
 
@@ -26,7 +26,7 @@ exports.addProduct = (req, res) => {
   );
 };
 
-// ❌ DELETE PRODUCT (ADMIN)
+//  DELETE PRODUCT (ADMIN)
 exports.deleteProduct = (req, res) => {
   const id = req.params.id;
 
